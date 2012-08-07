@@ -17,8 +17,8 @@ Setup your twilio API access as environment variables. Replace the values with t
 
 Setup your phone number to receive SMS message and the twilio number associated with your account.
 
-    export TWILIO_PHONE_NUMBER=+11234567890
-    export TRACK_PHONE_NUMBER=+11234567890
+    echo "export TWILIO_PHONE_NUMBER=+11234567890" >> ~/.bashrc
+    echo "export TRACK_PHONE_NUMBER=+11234567890" >> ~/.bashrc
 
 ## Usage
 
