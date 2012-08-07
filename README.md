@@ -15,6 +15,11 @@ Setup your twilio API access as environment variables. Replace the values with t
     echo "export TWILIO_ACCOUNT_SID=ACXXXXXXXXXXXXXXXXX" >> ~/.bashrc
     echo "export TWILIO_AUTH_TOKEN=YYYYYYYYYYYYYYYYYY" >> ~/.bashrc
 
+Setup your phone number to receive SMS message and the twilio number associated with your account.
+
+    export TWILIO_PHONE_NUMBER=+11234567890
+    export TRACK_PHONE_NUMBER=+11234567890
+
 ## Usage
 
     track "ping -c 50 google.com"

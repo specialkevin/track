@@ -3,6 +3,7 @@
 import argparse
 import subprocess
 import time
+import os
 
 from twilio.rest import TwilioRestClient
 
@@ -22,7 +23,9 @@ def send_sms(command, runtime, exit_status):
         message_body = "%s just errored after running for %s long." % (command, pretty_time(runtime))
     else:
         message_body = "%s just finished running. It took %s." % (command, pretty_time(runtime))
-    message = client.sms.messages.create(to="+16186043236",from_="+16186230185",body=message_body)
+    to_number = os.environ['TRACK_PHONE_NUMBER']
+    from_number = os.environ['TWILIO_PHONE_NUMBER']
+    message = client.sms.messages.create(to=to_number,from_=from_number,body=message_body)
     return
 
 if __name__ == "__main__":
