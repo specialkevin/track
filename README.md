@@ -8,6 +8,13 @@ A command-line tool to time and track how long a command takes to run. It will a
 
 twilio-python
 
+### Setup
+
+Setup your twilio API access as environment variables. Replace the values with the corresponding values for your account.
+
+    echo "export TWILIO_ACCOUNT_SID=ACXXXXXXXXXXXXXXXXX" >> ~/.bashrc
+    echo "export TWILIO_AUTH_TOKEN=YYYYYYYYYYYYYYYYYY" >> ~/.bashrc
+
 ## Usage
 
     track "ping -c 50 google.com"
