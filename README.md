@@ -6,7 +6,7 @@ A command-line tool to time and track how long a command takes to run. It will a
 
 ### Requirements
 
-twilio-python
+    pip install twilio
 
 ### Setup
 
