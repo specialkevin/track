@@ -4,9 +4,9 @@ A command-line tool to time and track how long a command takes to run. It will a
 
 ## Installation
 
-### Requirements
+### Install
 
-    pip install twilio
+    pip install git+git://github.com/specialkevin/track.git
 
 ### Setup
 
