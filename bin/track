@@ -12,25 +12,31 @@ def run(command):
     status = subprocess.call(command, shell=True)
     return status
 
+
 def pretty_time(runtime):
     minutes, seconds = divmod(runtime, 60)
     hours, minutes = divmod(minutes, 60)
     return '%02d:%02d:%02d' % (hours, minutes, seconds)
-    
+
+
 def send_sms(command, runtime, exit_status):
     client = TwilioRestClient()
     if exit_status:
-        message_body = "%s just errored after running for %s long." % (command, pretty_time(runtime))
+        message_body = "%s just errored after running for %s long." \
+                        % (command, pretty_time(runtime))
     else:
-        message_body = "%s just finished running. It took %s." % (command, pretty_time(runtime))
+        message_body = "%s just finished running. It took %s." \
+                        % (command, pretty_time(runtime))
     to_number = os.environ['TRACK_PHONE_NUMBER']
     from_number = os.environ['TWILIO_PHONE_NUMBER']
-    message = client.sms.messages.create(to=to_number,from_=from_number,body=message_body)
+    client.sms.messages.create(to=to_number,
+                                from_=from_number, body=message_body)
     return
 
+
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Track the commanded passed to it.')
-    parser.add_argument('command', nargs = '+')
+    parser = argparse.ArgumentParser(description='Track a running command.')
+    parser.add_argument('command', nargs='+')
     args = parser.parse_args()
     command = args.command[0]
     start = time.time()
